@@ -185,9 +185,14 @@ export default function CasePage({ params }: CasePageProps) {
       setTransforms(new Array(allRows.length).fill(centerX));
 
       requestAnimationFrame(() => {
-        setUseTransition(true);
-        setTransforms(newT);
+        setUseTransition(false);
+        setTransforms(new Array(allRows.length).fill(centerX));
+
+      requestAnimationFrame(() => {
+      setUseTransition(true);
+      setTransforms(newT);
       });
+        });
 
       setTimeout(async () => {
         setUseTransition(false);
